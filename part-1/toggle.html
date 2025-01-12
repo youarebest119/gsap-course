@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toggle_btn {
+            width: 90px;
+            height: 50px;
+            border-radius: 50px;
+            background: #d0f0f0;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: 0.5s;
+            position: relative;
+        }
+
+        .toggle_btn span {
+            width: 36px;
+            height: 36px;
+            position: absolute;
+            top: 50%;
+            left: 8px;
+            transform: translateY(-50%);
+            /* 36px */
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff17f3, #d56bff);
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" class="toggle_btn">
+        <span></span>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script>
+        let checked = true;
+        let btn = document.querySelector(".toggle_btn")
+        btn.addEventListener("click", event => {
+            gsap.to(".toggle_btn span", {
+                x: checked ? 36 : 0,
+                ease: "back.inOut",
+                duration: 0.5,
+                onComplete: () => {
+                    checked = !checked;
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

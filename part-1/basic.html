@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, #f7ffff, #cee5e9);
+            font-family: "DM Sans", serif;
+            padding: 20px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #137979, #065361);
+            border-radius: 10px;
+            position: relative;
+            clip-path: circle(100% at 50% 50%);
+            margin-bottom: 10px;
+        }
+
+        .outline {  
+            border: 2px solid black;
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outline">
+        <div class="box" id="box" data-id="box">
+
+        </div>
+        <div class="box" id="box-2" data-id="box-2">
+
+        </div>
+        <div class="box" id="box-3" data-id="box-3">
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
