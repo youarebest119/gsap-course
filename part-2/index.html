@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "DM Sans", serif;
+            padding: 50px;
+        }
+
+        .box {
+            width: 100px;
+            border-radius: 10px;
+            margin: 10px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 50px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(45deg, #137979, #065361);
+        }
+
+        .box:nth-child(2) {
+            background: linear-gradient(45deg, #0f886e, #10aa96);
+        }
+
+        .box:nth-child(3) {
+            background: linear-gradient(45deg, #0f3e6b, #0a2b49);
+        }
+
+        .box:nth-child(4) {
+            background: linear-gradient(45deg, #71e942, rgb(9, 145, 27));
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box-1" class="box"></div>
+    <div id="box-2" class="box"></div>
+    <div id="box-3" class="box"></div>
+    <div id="box-4" class="box"></div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <script>
+        const tl = gsap.timeline({
+            defaults: {
+                ease: "power4.inOut"
+            }
+        });
+
+        // gsap.to("#box-1", { duration: 2, x: 100, })
+        // gsap.to("#box-2", { duration: 1, x: 100, delay: 1, })
+        // gsap.to("#box-3", { duration: 5, x: 100, delay: 2, })
+        // gsap.to("#box-4", { duration: 1, x: 100, delay: 3, })
+
+
+        // tl.from("#box-1", { duration: 2, x: 100, })
+        // tl.to("#box-2", { duration: 1, x: 100, })
+        // tl.to("#box-1", { x: 0, duration: 1, ease: "back.inOut" })
+        // tl.to("#box-3", { duration: 5, x: 100, })
+        // tl.to("#box-4", { duration: 1, x: 100, })
+        // tl.fromTo("#box-2", { x: 300, }, { x: 200, })
+
+        tl
+            .to("#box-1", { x: 100, duration: 1, })
+            .addLabel("my-label")
+            .to("#box-2", { x: 200, duration: 0.5, },)
+            .addLabel("my-label-1")
+            .to("#box-3", { x: 300, },)
+            .to("#box-4", { x: 400, }, "my-label-1")
+
+    </script>
+</body>
+
+</html>
