@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "DM Sans", serif;
+            color: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 15px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .header .header_in {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .logo {
+            font-size: 20px;
+        }
+
+        .toggle {
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            background-color: rgb(14, 69, 209);
+            color: white;
+            text-align: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            padding: 4px 16px;
+            border-radius: 10px;
+        }
+
+        .toggle span {
+            margin-left: 10px;
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: white;
+        }
+
+        .toggle span:not(:last-child) {
+            margin-bottom: 6px;
+        }
+
+        .counter {
+            font-size: 72px;
+            font-weight: 600;
+            position: fixed;
+            bottom: 34px;
+            right: 34px;
+            z-index: 2;
+            font-family: "Inter", sans-serif;
+            font-variant-numeric: tabular-nums;
+            font-kerning: none;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero_txt {
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            padding: 100px 40px;
+        }
+
+        .hero_txt h1 {
+            width: fit-content;
+            font-size: 80px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height: 100px;
+        }
+
+        .hero_txt h1 div {
+            display: inline-block;
+        }
+
+        .hero_txt h1>div {
+            position: absolute;
+            overflow-y: clip;
+            height: 100px;
+            margin-left: 14px;
+        }
+
+        .hero_txt h1>div>div {
+            position: absolute;
+            transform: translateY(0%);
+        }
+
+        .hero_txt h1>div>div span {
+            display: block;
+        }
+
+        .hero_txt h1>div>div span.ing {
+            margin-left: -14px;
+        }
+
+        .hero_bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1d243e;
+            z-index: -1;
+            overflow: clip;
+        }
+
+        .hero_bg>div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero_bg>div:first-child {
+            background-color: #1d243e;
+        }
+
+        .hero_bg>div:nth-child(2) {
+            background-color: #482f0f;
+        }
+
+        .hero_bg>div:nth-child(5) {
+            background-color: #52725f;
+        }
+
+        .hero_bg>div:nth-child(3) {
+            background-color: #ee8d1e;
+        }
+
+        .hero_bg>div:nth-child(4) {
+            background-color: #921f1d;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header_in">
+                <div class="logo">Logo</div>
+                <button type="button" class="toggle">
+                    MENU
+                    <div>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h2 class="counter"></h2>
+        <div class="hero">
+            <div class="hero_txt">
+                <h1>
+                    <span>THE</span>
+                    <br>
+                    <span>BETTER</span>
+                    <div>
+                        <div>
+                            <span>Imagination</span>
+                            <span>surprising</span>
+                            <span class="ing">ing</span>
+                            <span>rousing</span>
+                            <span>Doing</span>
+                        </div>
+                    </div>
+                    <br>
+                    <span>Company</span>
+                </h1>
+            </div>
+            <div class="hero_bg">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(TextPlugin)
+            // gsap code here!
+        });
+
+        const textChange = gsap.quickSetter(".counter", "text");
+
+
+        let tl = gsap.timeline({
+            onUpdate: () => {
+                textChange(`${(tl.progress() * 100).toFixed(0)}%`);
+            },
+            onComplete: () => {
+                setInterval(() => {
+                    gsap.to(".counter", {
+                        y: 150,
+                        x: 150,
+                    })
+                }, 300);
+            }
+        })
+
+        let panels = gsap.utils.toArray(".hero_bg > div");
+
+        panels.forEach((panel, index) => {
+            tl.from(panel, {
+                yPercent: 100,
+                duration: 1,
+                ease: "power4.inOut",
+            })
+
+            tl.to("h1 > div > div", {
+                yPercent: - index * 20,
+                duration: 1,
+                ease: "power4.inOut",
+            }, "<")
+
+            tl.from(panel, { duration: 0.5, })
+
+        })
+
+        tl.to("h1", {
+            x: 600,
+            duration: 1,
+            ease: "back.inOut",
+        })
+
+        tl.from([".logo", ".toggle"], {
+            y: -200,
+            duration: 1,
+            ease: "back.inOut",
+            stagger: 0.05,
+        })
+
+
+    </script>
+</body>
+
+</html>
