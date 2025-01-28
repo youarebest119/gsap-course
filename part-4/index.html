@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .page {
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+        }
+
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            perspective: 1000px;
+            margin: 0 auto;
+            --rotate-x: 0deg;
+            --rotate-y: 0deg;
+            --position-x: 0%;
+            --position-y: 0%;
+        }
+
+        .page img {
+            object-fit: cover;
+            object-position: center;
+            width: calc(100% + 64px);
+            height: calc(100% + 64px);
+            position: absolute;
+            margin: 0 auto;
+            transform: translate(var(--position-x), var(--position-y));
+        }
+
+        .box {
+            transform-style: preserve-3d;
+            position: relative;
+            transform: rotateY(var(--rotate-y)) rotateX(var(--rotate-x));
+        }
+
+        .box>div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            overflow: clip;
+        }
+
+        .main {
+            position: relative;
+            height: 60dvh;
+        }
+
+        .small_card {
+            position: absolute;
+            width: 260px;
+            height: 140px;
+        }
+
+        .card_1 {
+            top: 50%;
+            left: 0;
+            transform: translateX(-50%);
+        }
+
+        .card_2 {
+            top: 0;
+            right: 0;
+            transform: translate(50%, -50%);
+        }
+
+        .card_3 {
+            bottom: 0;
+            right: 40px;
+            transform: translate(0%, 50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="container">
+            <div class="box">
+                <div class="main"><img src="./card-main.jpg" alt="" /></div>
+                <div class="small_card card_1"><img src="./card-1.jpg" alt="" /></div>
+                <div class="small_card card_2"><img src="./card-2.jpg" alt="" /></div>
+                <div class="small_card card_3"><img src="./card-3.jpg" alt="" /></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+
+    <script>
+        let box = document.querySelector(".box");
+        let width = 1000;
+        let height = 372;
+
+        const setRotationX = gsap.quickTo(".container", "--rotate-x")
+        const setRotationY = gsap.quickTo(".container", "--rotate-y")
+        const setPositionX = gsap.quickTo(".container", "--position-x")
+        const setPositionY = gsap.quickTo(".container", "--position-y")
+
+
+        box.addEventListener("mousemove", (event) => {
+            let width = event.currentTarget.offsetWidth;
+            let height = event.currentTarget.offsetHeight;
+
+            let x = (event.clientX - (width / 2)) / width - 0.5;
+            let y = (event.clientY - (height / 2)) / height - 0.5;
+
+
+
+            const rect = event.currentTarget.getBoundingClientRect();
+            const Xasfdasd = event.clientX - rect.left;
+            console.log('Xasfdasd: ', Xasfdasd);
+            const Yasdfasd = event.clientY - rect.top;
+            console.log('Yasdfasd: ', Yasdfasd);
+            // y = gsap.utils.clamp(-0.5, 0.5, y)
+            // x = gsap.utils.clamp(-0.5, 0.5, x)
+
+            // setRotationX(-y * 10)
+            // setRotationY(x * 10)
+            // setPositionY(- y * 4.5)
+            // setPositionX(- x * 4.5)
+
+            // const currentTarget = gsap.utils.selector(event.currentTarget);
+            // gsap
+            //     .timeline()
+            //     .to(event.currentTarget, {
+            //         rotateY: x * 10,
+            //         rotateX: -y * 10,
+            //     })
+            //     .to(currentTarget("img"), {
+            //         yPercent: - y * 4.5,
+            //         xPercent: - x * 4.5,
+            //     }, "0")
+        })
+
+
+        box.addEventListener("mouseout", (event) => {
+            setRotationX(0)
+            setRotationY(0)
+            setPositionY(0)
+            setPositionX(0)
+            // gsap
+            //     .timeline()
+            //     .to(event.currentTarget, {
+            //         rotateY: 0,
+            //         rotateX: 0,
+            //     })
+        })
+
+    </script>
+</body>
+
+</html>
