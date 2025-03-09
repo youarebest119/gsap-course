@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .root {
+            height: 400px;
+            width: 1000px;
+            background-color: aquamarine;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .box {
+            height: 100%;
+            width: 100%;
+            background-color: rgb(165, 216, 195);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .child {
+            height: 100%;
+            width: 100%;
+            background-color: #cba874;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            width: 25%;
+            height: 100%;
+            background-color: #aaaa59;
+            display: grid;
+            padding: 24px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            place-items: center;
+        }
+
+        .card:nth-child(2) {
+            background-color: #7a2121;
+        }
+
+        .card:nth-child(3) {
+            background-color: #1db3ab;
+        }
+
+        .card:nth-child(4) {
+            background-color: #2333be;
+        }
+
+        .small_box {
+            width: 30px;
+            height: 30px;
+            background-color: rgb(154, 238, 165);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="root">
+        <div class="box">
+            <div class="child">
+                <div class="card card-1">
+                    <div class="small_box"></div>
+                    <div class="small_box"></div>
+                    <div class="small_box"></div>
+                    <div class="small_box"></div>
+                    <div class="small_box"></div>
+                    <div class="small_box"></div>
+                    <div class="small_box"></div>
+                    <p>Hello</p>
+                </div>
+                <div class="card"></div>
+                <div class="card"></div>
+                <div class="card card-4">
+                    <div class="small_box"></div>
+                    <div class="small_box"></div>
+                    <div class="small_box"></div>
+                    <div class="small_box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script>
+        // selectors // 
+        // // card 1
+        // let card1 = document.querySelector(".card-1");
+        // let card1ElementSelector = gsap.utils.selector(card1);
+
+        // let smallBoxes = card1ElementSelector(".small_box")
+        // let p = card1ElementSelector("p")
+
+        // gsap.from(smallBoxes, {
+        //     opacity: 0,
+        //     stagger: {
+        //         amount: 1,
+        //         from: "edges",
+        //     },
+        // })
+
+        // // shuffle
+        // // let numbers = [1, 2, 3, 4]
+        // // console.log('numbers: ', numbers);
+        // // let shuffledNumbers = gsap.utils.shuffle(numbers);
+        // // console.log('shuffledNumbers: ', shuffledNumbers);
+        // let card1 = document.querySelector(".card-1");
+        // let card1ElementSelector = gsap.utils.selector(card1);
+        // let smallBoxes = card1ElementSelector(".small_box")
+
+        // gsap.from(gsap.utils.shuffle(smallBoxes), {
+        //     opacity: 0,
+        //     stagger: 1,
+        // })
+
+        // // // snap
+        // // const snappedValue = gsap.utils.snap([0, 10, 20, 30], 9)
+        // // console.log('snappedValue: ', snappedValue);
+
+        // toArray
+        // let elements = gsap.utils.toArray(".card .small_box, .card, .box")
+        // gsap.from(elements, {
+        //     stagger: 0.05,
+        //     x: -20,
+        //     opacity: 0,
+        // })
+    </script>
+</body>
+
+</html>
