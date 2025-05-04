@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigger Animation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap');
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: rgb(15, 16, 23);
+        }
+
+        .card {
+            width: 400px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            border-radius: 8px;
+            margin: 32dvh 0;
+            padding: 10px 20px 10px 80px;
+            position: relative;
+        }
+
+        .card:nth-child(even) {
+            margin-left: auto;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card ul {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 8px;
+        }
+
+        .card ul li {
+            font-family: "Cascadia Code", sans-serif;
+            list-style: none;
+            color: white;
+        }
+
+        .card ul li:not(:last-child) {
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card" data-trigger data-fade style="background-color: rgb(100, 60, 40);">
+            <img src="./assets/icons/Frame 2.png" alt="" />
+        </div>
+        <div class="card" data-trigger data-fade style="background-color: rgb(50, 100, 60);">
+            <img src="./assets/icons/Frame 3.png" alt="" />
+        </div>
+        <div class="card" 
+            data-trigger 
+            data-fade
+            data-repeat 
+            data-markers
+            data-start="center center"
+            data-end="bottom 20%"
+            data-duration="100"
+            data-slide-left
+            data-slide-up
+            data-flip-left
+            data-zoom-in
+            data-ease="back.inOut"
+            style="background-color: rgb(40, 90, 120);">
+            <img src="./assets/icons/Frame 4.png" alt="" />
+        </div>
+        <div class="card"
+        data-trigger data-repeat data-slide-up data-slide-right
+         style="background-color: rgb(120, 100, 30);">
+            <img src="./assets/icons/Frame 5.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(90, 80, 130);">
+            <img src="./assets/icons/Frame 6.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(120, 70, 80);">
+            <img src="./assets/icons/Frame 7.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(110, 110, 60);">
+            <img src="./assets/icons/Frame 8.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(60, 130, 120);">
+            <img src="./assets/icons/Frame 9.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(130, 100, 40);">
+            <img src="./assets/icons/Frame 10.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(90, 120, 60);">
+            <img src="./assets/icons/Frame 11.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(130, 80, 120);">
+            <img src="./assets/icons/Frame 12.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(120, 100, 40);">
+            <img src="./assets/icons/Frame 13.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(80, 120, 100);">
+            <img src="./assets/icons/Frame 14.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(130, 90, 70);">
+            <img src="./assets/icons/Frame 15.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(60, 120, 100);">
+            <img src="./assets/icons/Frame 16.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 120, 60);">
+            <img src="./assets/icons/Frame 17.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(100, 130, 150);">
+            <img src="./assets/icons/Frame 18.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 80, 110);">
+            <img src="./assets/icons/Frame 19.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(90, 130, 50);">
+            <img src="./assets/icons/Frame 20.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 100, 60);">
+            <img src="./assets/icons/Frame 21.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(70, 110, 130);">
+            <img src="./assets/icons/Frame 22.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 90, 60);">
+            <img src="./assets/icons/Frame 23.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(90, 130, 80);">
+            <img src="./assets/icons/Frame 24.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 110, 70);">
+            <img src="./assets/icons/Frame 25.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(60, 130, 140);">
+            <img src="./assets/icons/Frame 26.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(120, 90, 100);">
+            <img src="./assets/icons/Frame 27.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(90, 130, 70);">
+            <img src="./assets/icons/Frame 28.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(130, 120, 60);">
+            <img src="./assets/icons/Frame 29.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(50, 120, 130);">
+            <img src="./assets/icons/Frame 30.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 90, 70);">
+            <img src="./assets/icons/Frame 31.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(80, 130, 70);">
+            <img src="./assets/icons/Frame 32.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(130, 110, 70);">
+            <img src="./assets/icons/Frame 33.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(70, 130, 130);">
+            <img src="./assets/icons/Frame 34.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 90, 100);">
+            <img src="./assets/icons/Frame 35.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(90, 130, 70);">
+            <img src="./assets/icons/Frame 36.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 110, 70);">
+            <img src="./assets/icons/Frame 37.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(60, 130, 140);">
+            <img src="./assets/icons/Frame 38.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(120, 90, 90);">
+            <img src="./assets/icons/Frame 39.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(80, 130, 70);">
+            <img src="./assets/icons/Frame 40.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 110, 60);">
+            <img src="./assets/icons/Frame 41.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(50, 130, 150);">
+            <img src="./assets/icons/Frame 42.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(130, 90, 90);">
+            <img src="./assets/icons/Frame 43.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(70, 130, 80);">
+            <img src="./assets/icons/Frame 44.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 110, 70);">
+            <img src="./assets/icons/Frame 45.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(50, 130, 140);">
+            <img src="./assets/icons/Frame 46.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(130, 80, 100);">
+            <img src="./assets/icons/Frame 47.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(70, 130, 70);">
+            <img src="./assets/icons/Frame 48.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(140, 110, 70);">
+            <img src="./assets/icons/Frame 49.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(50, 130, 140);">
+            <img src="./assets/icons/Frame 50.png" alt="" />
+        </div>
+        <div class="card" style="background-color: rgb(130, 90, 70);">
+            <img src="./assets/icons/Frame 51.png" alt="" />
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
