@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100dvh;
+        }
+
+        h2 {
+            text-transform: capitalize;
+            font-size: 36px;
+        }
+
+        h1 {
+            font-weight: 700;
+            font-size: 75px;
+            text-transform: capitalize;
+            --creative: 1;
+            --creative-color: white;
+        }
+
+        .creative {
+            position: relative;
+            z-index: 1;
+            color:  var(--creative-color);
+            padding: 0 10px;
+        }
+
+        .creative::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            left: 100px;
+            z-index: -1;
+            transform: scaleX(var(--creative));
+            transform-origin: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Hi! I'm Rosa, great to have you here</h2>
+    <h1>
+        I turn your ideas
+        <br>
+        Into <span class="creative">creative</span> impact
+    </h1>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
