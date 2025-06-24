@@ -1,0 +1,15 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Cascadia Code";
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(34, 119, 193);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
